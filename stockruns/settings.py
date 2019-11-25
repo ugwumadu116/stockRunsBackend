@@ -1,3 +1,4 @@
+print('joel is here JOEL IS HERE JOEL IS HERE JOEL IS HERE JOEL')
 """
 Django settings for stockruns project.
 
