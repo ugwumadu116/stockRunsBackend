@@ -24,9 +24,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# DEBUG = config('DEBUG', default=False, cast=bool)
+checker = config('TESTER', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://stckrunsbackend.herokuapp.com']   
+ALLOWED_HOSTS = ['https://stckrunsbackend.herokuapp.com','http://localhost:8000']   
 
 
 
@@ -82,31 +82,22 @@ WSGI_APPLICATION = 'stockruns.wsgi.application'
 import dj_database_url
 import django_heroku
 
+
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+if checker == True:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'HOST': 'db',
+        'PASSWORD': '',
+        'PORT': 5432,
+        }
+    }
+else:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-# DATABASES = {}
-# if DEBUG == True:
-#     DATABASES = {
-#         'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('DB_NAME'),
-#         'USER': config('DB_USER'),
-#         'HOST': 'db',
-#         'PASSWORD': '',
-#         'PORT': 5432,
-#         }
-#     }
-# else:
-#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
-# print('JOEL IS HERE JOEL IS HERE JOEL IS HERE')
-
-# print(DATABASES)
-# print('JOEL IS HERE JOEL IS HERE JOEL IS HERE222222222222222222222')
-# print(DEBUG)
-
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
