@@ -96,7 +96,9 @@ if DEBUG == True:
 else:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-
+print('joeojeojoeoeooeoojoel oejo joel joel ojoel joel joel joe l oinel')
+print(DEBUG)
+print(DATABASES)
 
 
 
