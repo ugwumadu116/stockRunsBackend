@@ -2,23 +2,18 @@ language: python
 python:
   - "3.6"
 
-env:
-  - SECRET_KEY='TEST'
 services:
-  - postgresql
+  - docker
 
-install:
-  - pip install -r requirements.txt
+before_script: pip install docker-compose
 
 script:
-  - python manage.py migrate
-  - python manage.py test
+  - docker-compose run web sh -c "python manage.py test"
 
 deploy:
   provider: heroku
   api_key:
     secure: 12354487-fe77-4d39-bf16-e1903e02a9fc
-  app: stocksrunsbackend
+  app: stckrunsbackend
   on:
-    repo: ugwumadu116/stock_runs_backend
-
+    repo: ugwumadu116/stockRunsBackend
