@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+print('JOEL IS HERE JOEL IS HERE JOEL IS HERE')
 import os
 from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']   
+ALLOWED_HOSTS = ['https://stckrunsbackend.herokuapp.com']   
 
 
 
@@ -97,7 +97,11 @@ if DEBUG == True:
 else:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
+print('JOEL IS HERE JOEL IS HERE JOEL IS HERE')
 
+print(DATABASES)
+print('JOEL IS HERE JOEL IS HERE JOEL IS HERE222222222222222222222')
+print(DEBUG)
 
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 

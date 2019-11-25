@@ -7,4 +7,4 @@ release:
   command:
     - python manage.py migrate
 run:
-  web: gunicorn --bind 0.0.0.0:$PORT stockruns.wsgi 
+  web: gunicorn --bind 0.0.0.0:$PORT stockruns.wsgi:application
