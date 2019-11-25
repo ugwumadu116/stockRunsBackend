@@ -3,12 +3,14 @@ python:
   - "3.6"
 
 services:
-  - docker
+  - postgresql
 
-before_script: pip install docker-compose
+install:
+  - pip install -r requirements.txt
 
 script:
-  - docker-compose run web sh -c "python manage.py test"
+  - python manage.py migrate
+  - python manage.py test
 
 deploy:
   provider: heroku
@@ -17,3 +19,4 @@ deploy:
   app: stckrunsbackend
   on:
     repo: ugwumadu116/stockRunsBackend
+
