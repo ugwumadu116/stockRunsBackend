@@ -28,7 +28,7 @@ checker = True
 # checker = config('TESTER', default=False, cast=bool)
 print("Joel is here Joe is here")
 print(config('TESTER'))
-print(config('SECRET_KEY'))
+print(config('DB_NAME'))
 
 ALLOWED_HOSTS = ['https://stckrunsbackend.herokuapp.com','http://localhost:8000']   
 
