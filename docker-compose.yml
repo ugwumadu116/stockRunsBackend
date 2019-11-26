@@ -8,6 +8,9 @@ services:
 
   web:
     build: .
+    environment:
+        - TESTER=1
+        - SECRET_KEY=lioear+t2m)w8tqh3!#=9keq+ldz^4dpe5h*a4k*5c=@%-y@nw
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app

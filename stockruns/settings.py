@@ -87,8 +87,8 @@ if checker == True:
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
+        'NAME': 'postgres',
+        'USER': 'postgres',
         'HOST': 'db',
         'PASSWORD': '',
         'PORT': 5432,
