@@ -84,7 +84,26 @@ WSGI_APPLICATION = 'stockruns.wsgi.application'
 import dj_database_url
 import django_heroku
 
-
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'HOST': '',
+#         'PORT': 5432,
+#         'PASSWORD': 'juninho1',
+#     }
+# }
+# DATABASES = {}
+# if DEBUG == True:
+#     DATABASES = {
+#         'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'HOST': 'db',
+#         'PORT': 5432,
+#         }
+#     }
 DATABASES = {}
 if checker == True:
     DATABASES = {
