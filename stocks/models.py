@@ -1,7 +1,23 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
-from datetime import datetime 
+from datetime import datetime
+import os
 
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
+
+
+class OverwriteStorage(FileSystemStorage):
+
+    '''
+    Muda o comportamento padrão do Django e o faz sobrescrever arquivos de
+    mesmo nome que foram carregados pelo usuário ao invés de renomeá-los.
+    '''
+    def get_available_name(self, name):
+        if self.exists(name):
+            os.remove(os.path.join(settings.MEDIA_ROOT, name))
+        return name
 
 class StockStore(models.Model):
     symbol = models.CharField(max_length=60)
@@ -20,3 +36,20 @@ class StockStore(models.Model):
 
     def __str__(self):
         return self.symbol
+
+
+class MyStockFile(models.Model):
+    file = models.FileField(u"mytest", blank=False, null=False,  upload_to=settings.MEDIA_ROOT, storage=OverwriteStorage())
+    # file = models.FileField(blank=False, null=False)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
+
+
+
+
+
+
+# class Media(models.Model):
+#     name = models.CharField(u"Nome", max_length=128))
+#     media = models.FileField(u"Arquivo", upload_to=settings.MEDIA_DIR, storage=OverwriteStorage())

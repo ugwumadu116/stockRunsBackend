@@ -56,6 +56,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'stockruns.urls'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,8 +92,8 @@ if checker == True:
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': 'db',
-        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PASSWORD': 'juninho1',
         'PORT': 5432,
         }
     }
