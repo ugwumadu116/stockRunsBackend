@@ -111,7 +111,8 @@ if checker == True:
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': 'db',
+        'HOST': 'localhost',
+        'PASSWORD': 'juninho1',
         'PORT': 5432,
         }
     }
